@@ -1,9 +1,11 @@
 import React from 'react';
 import HomeScreen from '../views/HomeScreen';
 import TableScreen from '../views/TableScreen';
+import CountZoneReceipt from '../views/CountZoneReceipt';
 
 import SideBar from '../layouts/SideBar';
 import {createDrawerNavigator, createAppContainer} from 'react-navigation'; 
+
 
 const AppNavigator = createDrawerNavigator({
     
@@ -12,6 +14,9 @@ const AppNavigator = createDrawerNavigator({
     },
     Table : {
         screen: props=> <TableScreen {...props}/>
+    },
+    CountZoneReceipt: {
+      screen: props=> <CountZoneReceipt {...props}/>
     }
     
   },

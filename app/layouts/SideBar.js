@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, List, ListItem, Header, Title,Card, CardItem, Thumbnail,Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import HomeScreen from '../views/HomeScreen';
-
+import CountZoneReceipt from '../views/CountZoneReceipt';
 
 export default class SideBar extends React.Component {
   state = {
@@ -27,8 +27,9 @@ export default class SideBar extends React.Component {
                 onPress={() => this.props.navigation.navigate('Home')}> 
                 <Text> Начало </Text>
             </ListItem>
-            <ListItem>
-              <Text>Nathaniel Clyne</Text>
+            <ListItem button
+                onPress={() => this.props.navigation.navigate('CountZoneReceipt')}>
+              <Text>Пресметни зонова рецепта</Text>
             </ListItem>
             <ListItem>
               <Text>Dejan Lovren</Text>

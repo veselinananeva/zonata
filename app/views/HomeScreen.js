@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Header, Title,Card, CardItem, Thumbnail,Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
-
+import firebase from 'react-native-firebase';
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -9,8 +9,14 @@ export default class HomeScreen extends React.Component {
   }
   constructor(props) {
     super(props);
-
-   
+    /*firebase.firestore().collection('foods')
+    .get()
+    .then(snapshot => {
+      snapshot.forEach(doc => {
+        console.warn(doc.id);
+        console.warn(doc.data())
+      })
+    })*/
 }
 
 
@@ -59,7 +65,7 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
-                  <Text> Таблица с хранителни блокове</Text>
+                  <Text> Пресметни зонова рецепта</Text>
                   <Text note></Text>
                 </Body>
               </Left>
@@ -68,7 +74,9 @@ export default class HomeScreen extends React.Component {
             <CardItem>
                          
               <Right>
-              <Button warning><Text> Отвори  </Text></Button>
+              <Button warning 
+              
+              ><Text> Отвори  </Text></Button>
               </Right>
             </CardItem>
           </Card>
@@ -78,7 +86,7 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
-                  <Text> Таблица с хранителни блокове</Text>
+                  <Text> Пресметни готова рецепта </Text>
                   <Text note></Text>
                 </Body>
               </Left>
@@ -87,7 +95,8 @@ export default class HomeScreen extends React.Component {
             <CardItem>
                          
               <Right>
-              <Button warning><Text> Отвори  </Text></Button>
+              <Button warning >
+                <Text> Отвори  </Text></Button>
               </Right>
             </CardItem>
           </Card>

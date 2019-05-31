@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1058895379800",
+    "firebase_url": "https://zonata-app123.firebaseio.com",
+    "project_id": "zonata-app123",
+    "storage_bucket": "zonata-app123.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1058895379800:android:d4fa40b8909a8864",
+        "android_client_info": {
+          "package_name": "com.zonata"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1058895379800-54tijhgaa7kfhqjtf7v2jjrhdv22g4ko.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHv4CXaOEI8MMJahR7lQD9onssG91ZdAg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1058895379800-54tijhgaa7kfhqjtf7v2jjrhdv22g4ko.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
