@@ -1,6 +1,10 @@
 import React from 'react';
 import { Container, Header, Title,Segment, List, ListItem, Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import FatTable from '../views/table/FatTable';
+import CarbTable from '../views/table/CarbTable';
+import ProtTable from '../views/table/ProtTable';
+
 
 
 export default class TableScreen extends React.Component {
@@ -13,11 +17,11 @@ export default class TableScreen extends React.Component {
 
   _renderComponent = () => {
     if(this.state.activePage === 1) {
-    return <Component1/>; }
+    return <FatTable/>; }
     else if (this.state.activePage === 2) 
-    { return <Component2/>; }
+    { return <ProtTable/>; }
     else  
-    {return <Component3/>; }
+    {return <CarbTable/>; }
   }
 
  
@@ -56,8 +60,9 @@ export default class TableScreen extends React.Component {
             <Text>Въглехидрати</Text>
           </Button>
         </Segment>
+
         <Content padder>
-          <Text>  {this._renderComponent()}</Text>
+          {this._renderComponent()}
         </Content>
         </Container>
     );
@@ -66,7 +71,7 @@ export default class TableScreen extends React.Component {
 
 
 const Component1 = () => (<Text>Hello world! This is Component B</Text>);
-const Component2 = () => (<Text>Hello world! This is bbbb </Text>);
+//const Component2 = () => (<Text>Hello world! This is bbbb </Text>);
 const Component3 = () => (<Text>Hello world! This is Component c</Text>);
 
 const styles = StyleSheet.create({
