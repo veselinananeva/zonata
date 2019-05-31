@@ -6,14 +6,18 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 
 export default class CountZoneReceipt extends React.Component {
   state = {
-    loading: true
+    loading: true, 
+    data: [1]
   }
   constructor(props) {
     super(props);
 
-   
+  }
+  addData(){
+      var ss = this.state.data;
+        ss.push("penis");
+    this.setState({data: ss})
 }
-
 
   render() {
   
@@ -33,23 +37,36 @@ export default class CountZoneReceipt extends React.Component {
           <Right />
         </Header>
         <Content padder>
-            <View style={{flexDirection: "row"}}>
-                <View style={{width: 200, height: 50, marginRight:10}}>
-                    <Item>
-                        <Input placeholder="Въведи продукт" />
-                    </Item>
-                </View>
-                <View style={{width: 90, height: 50, marginRight:10}}>
-                    <Item>
-                        <Input placeholder="к-во" />
-                    </Item>
-                </View>
-                <View style={{width: 120, height: 50, marginRight:10}}> 
-                    <Button  danger>
-                        <Text>  +   </Text>
-                    </Button>
-                </View>
-            </View>
+
+            {
+                this.state.data.map((data, index)=> {
+                    return (
+                    <View key={index}>
+                        <View value={data} style={{flexDirection: "row"}}>
+                            <View style={{width: 200, height: 50, marginRight:10}}>
+                                <Item>
+                                    <Input placeholder="Въведи продукт" />
+                                </Item>
+                            </View>
+                            <View style={{width: 90, height: 50, marginRight:10}}>
+                                <Item>
+                                    <Input placeholder="к-во" />
+                                </Item>
+                            </View>
+                            <View style={{width: 120, height: 50, marginRight:10}}> 
+                                <Button  success onPress={(e)=>this.addData(e)}>
+                                    <Text>  +   </Text>
+                                </Button>
+                            </View>
+                        </View>
+                    </View>
+                        
+                    )
+                    
+                })
+            }
+            
+            
         </Content>           
        </Container>
           

@@ -22,7 +22,7 @@ export default class FatTable extends React.Component {
            <View searchBar style={{textAlignVertical: "center",textAlign: "center"}} rounded >
                 <Item>
                     <Icon name="ios-search" />
-                    <Input placeholder="Search" />
+                    <Input placeholder="Търси" />
                     
                 </Item>
            </View>

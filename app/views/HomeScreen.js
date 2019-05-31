@@ -5,7 +5,8 @@ import firebase from 'react-native-firebase';
 
 export default class HomeScreen extends React.Component {
   state = {
-    loading: true
+    loading: true, 
+   
   }
   constructor(props) {
     super(props);
@@ -17,6 +18,8 @@ export default class HomeScreen extends React.Component {
         console.warn(doc.data())
       })
     })*/
+
+    
 }
 
 
@@ -43,20 +46,12 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
-                  <Text> Таблица с хранителни блокове</Text>
-                  <Text note></Text>
+                  <Text  onPress={() => this.props.navigation.navigate('Table')}> Таблица с хранителни блокове</Text>
+                  
                 </Body>
               </Left>
-            </CardItem>
-            
-            <CardItem>
-                         
-              <Right>
-              <Button warning 
-              onPress={() => this.props.navigation.navigate('Table')}>
-                
-                <Text> Отвори  </Text></Button>
-              </Right>
+           
+             
             </CardItem>
           </Card>
 
@@ -66,19 +61,12 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
                   <Text> Пресметни зонова рецепта</Text>
-                  <Text note></Text>
+                  
                 </Body>
               </Left>
             </CardItem>
             
-            <CardItem>
-                         
-              <Right>
-              <Button warning 
-              
-              ><Text> Отвори  </Text></Button>
-              </Right>
-            </CardItem>
+            
           </Card>
 
           <Card>
@@ -87,18 +75,12 @@ export default class HomeScreen extends React.Component {
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
                   <Text> Пресметни готова рецепта </Text>
-                  <Text note></Text>
+                 
                 </Body>
               </Left>
             </CardItem>
             
-            <CardItem>
-                         
-              <Right>
-              <Button warning >
-                <Text> Отвори  </Text></Button>
-              </Right>
-            </CardItem>
+            
           </Card>
         </Content>
         </Container>
