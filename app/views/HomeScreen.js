@@ -60,7 +60,8 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
-                  <Text> Пресметни зонова рецепта</Text>
+                  <Text onPress={() => this.props.navigation.navigate('CountZoneReceipt')}
+                  > Пресметни зонова рецепта</Text>
                   
                 </Body>
               </Left>
@@ -74,7 +75,8 @@ export default class HomeScreen extends React.Component {
               <Left>
                 <Thumbnail source={{uri: 'http://lingvotutor.ru/wp-content/uploads/2009/11/Food-640x320.jpg'}} />
                 <Body>
-                  <Text> Пресметни готова рецепта </Text>
+                  <Text onPress={() => this.props.navigation.navigate('CountNormalReceipt')}
+                  > Пресметни готова рецепта </Text>
                  
                 </Body>
               </Left>

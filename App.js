@@ -1,7 +1,6 @@
 import React from 'react';
 import { Container, Header, Title,Card, CardItem, Thumbnail,Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View } from 'react-native';
-
 import AppNavigator from './app/navigator/AppNavigator';
 
 

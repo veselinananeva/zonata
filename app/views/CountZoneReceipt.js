@@ -37,11 +37,14 @@ export default class CountZoneReceipt extends React.Component {
           <Right />
         </Header>
         <Content padder>
-
+              <Text note style={{textAlign:'center'}} padder> За пресмятането на необходимите продукти за
+              зонова рецепта, моля въвете в секция к-во точния брой блокове за конкретен продукт. 
+              
+               </Text>
             {
                 this.state.data.map((data, index)=> {
                     return (
-                    <View key={index}>
+                    <View key={index} style={{marginTop:10}}>
                         <View value={data} style={{flexDirection: "row"}}>
                             <View style={{width: 200, height: 50, marginRight:10}}>
                                 <Item>
@@ -54,8 +57,8 @@ export default class CountZoneReceipt extends React.Component {
                                 </Item>
                             </View>
                             <View style={{width: 120, height: 50, marginRight:10}}> 
-                                <Button  success onPress={(e)=>this.addData(e)}>
-                                    <Text>  +   </Text>
+                                <Button  warning onPress={(e)=>this.addData(e)}>
+                                    <Text style={{color: '#fff'}}>  +   </Text>
                                 </Button>
                             </View>
                         </View>
@@ -65,7 +68,11 @@ export default class CountZoneReceipt extends React.Component {
                     
                 })
             }
-            
+            <View padder style={{flexDirection: 'row', justifyContent: 'flex-end'}} style={{marginTop:10}}>
+                <Button success  > 
+                  <Text style={{color: '#fff'}}> Изчисли </Text>
+                </Button>
+            </View>
             
         </Content>           
        </Container>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, List, ListItem, Header, Title,Card, CardItem, Thumbnail,Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
-import { StatusBar, StyleSheet, Text, View, ImageBackground } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, ImageBackground,  } from 'react-native';
 import HomeScreen from '../views/HomeScreen';
 import CountZoneReceipt from '../views/CountZoneReceipt';
 
@@ -37,11 +37,16 @@ export default class SideBar extends React.Component {
                 <Text> Начало </Text>
             </ListItem>
             <ListItem button
-                onPress={() => this.props.navigation.navigate('CountZoneReceipt')}>
-              <Text>Пресметни зонова рецепта</Text>
+                >
+              <Text>Моите рецепти</Text>
             </ListItem>
-            <ListItem>
-              <Text>Dejan Lovren</Text>
+            <ListItem
+                >
+              <Text>Пресметни по етикет</Text>
+            </ListItem>
+            <ListItem
+               >
+              <Text>Дневник</Text>
             </ListItem>
           </List>
           </View>
