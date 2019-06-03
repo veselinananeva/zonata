@@ -1,35 +1,41 @@
 import React from 'react';
-import { Container, Header, Title,Card, CardItem, Item, Input,
+import { Container, Header, Title,Card, CardItem, Item, Input,Form,
   Thumbnail, Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import firebase from 'react-native-firebase';
+//import firebase from 'firebase';
 
+const firebaseConfig = {
+  apiKey: 'AIzaSyBkkNn6H8lQ6ZfGaxc6bOajvPgRMEA-3eI',
+  authDomain: "zonata-app123.firebaseio.com",
+  databaseURL: "https://zonata-app123.firebaseio.com/",
+  projectId:"zonata-app123",
+  storageBucket: "",
+}
+
+firebase.initializeApp(firebaseConfig);
 export default class Register extends React.Component {
-  state = {
-    loading: true, 
-    email: '',
-    password: ''
+
+
+  constructor(props) {
+    super(props)
+
+    this.state = ({
+      email: '',
+      password: '',
+    })
+  }
    
+  signUpUser = (email, password) => {
+      try{
+      firebase.auth().createUserWithEmailAndPassword(email,password). then(this.props.navigation.navigate('Login'))
+      }
+      catch {
+        console.warn(error.toString('neee'))
+      }
   }
 
-  onRegister = () => {
-    const { email, password } = this.state;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((user) => {
-          console.warn(user);
-        // If you need to do anything with the user, do it here
-        // The user will be logged in automatically by the
-        // `onAuthStateChanged` listener we set up in App.js earlier
-      })
-      .catch((error) => {
-        const { code, message } = error;
-        console.warn(error);
-        // For details of error codes, see the docs
-        // The message contains the default Firebase string
-        // representation of the error
-      });
-  }
-
+  
   render() {
   
     return (
@@ -40,7 +46,7 @@ export default class Register extends React.Component {
               <View style={{marginTop:20, alignSelf:'center'}}>
               <Thumbnail style={{width: 100, height: 100, margin: 20, padding:10}}  source={require('../assets/logo.png')}/>
               </View>
-
+              <Form>
               <View style={{marginTop:80}}>
                 
                 <View style={{padding:10}}>
@@ -58,13 +64,8 @@ export default class Register extends React.Component {
                   placeholder='Парола' placeholderTextColor="#fff" secureTextEntry={true} />
                 </Item>
                 </View>
-                <View style={{padding:10}}>
-                <Item rounded>
-                  <Input placeholder='Повтори Парола' placeholderTextColor="#fff" secureTextEntry={true} />
-                </Item>
-                </View>
                 <View style={{padding:10}}> 
-                  <Button onPress={this.onRegister.bind(this)} success full rounded style={{padding:20, color:'#fff', alignSelf:'center'}}>
+                  <Button onPress={()=>this.signUpUser(this.state.email, this.state.password)} success full rounded style={{padding:20, color:'#fff', alignSelf:'center'}}>
                     <Text style={{color:'#fff'}}>
                       Регистрация
                     </Text>
@@ -74,6 +75,8 @@ export default class Register extends React.Component {
                 
                 </View>
               </View>
+              </Form>
+              
                     
              </ImageBackground>
         </View>

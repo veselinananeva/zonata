@@ -10,11 +10,11 @@ import RegisterScreen from '../views/RegisterScreen';
 
 const AppNavigator = createDrawerNavigator({
     
-  Register: {
-    screen: props=> <RegisterScreen {...props}/>
-  }, 
   Login: {
     screen: props=> <LoginScreen {...props}/>
+  },
+  Register: {
+    screen: props=> <RegisterScreen {...props}/>
   },  
     Home: {
       screen: props=> <HomeScreen {...props}/> // predavame propsovete
