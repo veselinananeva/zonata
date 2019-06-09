@@ -1,23 +1,30 @@
 import React from 'react';
 import { Container, Header, List, ListItem, Input, Item, Title,
      Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View, Modal, Alert, TouchableHighlight  } from 'react-native';
 
 
 export default class CountZoneReceipt extends React.Component {
   state = {
     loading: true, 
-    data: [1]
+    data: [1],
+    modalVisible: false,
+    
   }
   constructor(props) {
     super(props);
 
   }
   addData(){
-      var ss = this.state.data;
-        ss.push("penis");
-    this.setState({data: ss})
+    var ss = this.state.data;
+      ss.push('ff');
+  this.setState({data: ss})
 }
+
+  setModalVisible(visible) {
+    this.setState({modalVisible: visible});
+  }
+ 
 
   render() {
   
@@ -32,13 +39,59 @@ export default class CountZoneReceipt extends React.Component {
             </Button>
           </Left>
           <Body>
-            <Title>Зонова рецепта</Title>
+            <Title>Готова рецепта</Title>
           </Body>
           <Right />
         </Header>
         <Content padder>
-              <Text note style={{textAlign:'center'}} padder> За пресмятането на необходимите продукти за
-              зонова рецепта, моля въвете в секция к-во точния брой блокове за конкретен продукт. 
+
+        <Modal
+            style={{margin: 22}}
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            Alert.alert('Modal has been closed.');
+          }}>
+          <View padder style={{margin: 22}}>
+            <View>
+              <Text>Изчислената рецепта е:  </Text>
+              <View >    
+                <List>
+                    <ListItem>
+                        <Text>Картофи</Text>
+                        
+                    </ListItem>
+                    <ListItem>
+                    <Text>Nathaniel Clyne</Text>
+                    </ListItem>
+                    <ListItem>
+                    <Text>Dejan Lovren</Text>
+                    </ListItem>
+                </List>
+              </View>
+
+                <View style={{flex: 1, flexDirection: 'row', marginTop:20}}> 
+                        <Button danger style={{marginRight: 10, padding:10}}
+                        onPress={() => {
+                        this.setModalVisible(!this.state.modalVisible);
+                        }}>
+                        <Text style={{color:'#fff'}}> Затвори </Text>
+                    </Button>
+                    <Button success style={{marginRight: 10, padding:10}}
+                        onPress={() => {
+                        this.setModalVisible(!this.state.modalVisible);
+                        }}>
+                        <Text style={{color:'#fff'}}> Запази </Text>
+                    </Button>
+                </View>
+            </View>
+          </View>
+        </Modal>
+
+
+              <Text note style={{textAlign:'center'}} padder> За пресмятането на необходимите грамове за
+              блокова рецепта, моля въвете в секция к-во точното количество в блокове за конкретен продукт. 
               
                </Text>
             {
@@ -58,7 +111,7 @@ export default class CountZoneReceipt extends React.Component {
                             </View>
                             <View style={{width: 120, height: 50, marginRight:10}}> 
                                 <Button  warning onPress={(e)=>this.addData(e)}>
-                                    <Text style={{color: '#fff'}}>  +   </Text>
+                                    <Text style={{color:'#fff'}}>  +   </Text>
                                 </Button>
                             </View>
                         </View>
@@ -68,9 +121,11 @@ export default class CountZoneReceipt extends React.Component {
                     
                 })
             }
-            <View padder style={{flexDirection: 'row', justifyContent: 'flex-end'}} style={{marginTop:10}}>
-                <Button success  > 
-                  <Text style={{color: '#fff'}}> Изчисли </Text>
+            <View padder style={{flexDirection: 'row', justifyContent: 'flex-end', marginTop:10}}>
+                <Button success  onPress={() => {
+                        this.setModalVisible(true);
+                         }}> 
+                  <Text style={{color:'#fff'}}> Изчисли </Text>
                 </Button>
             </View>
             

@@ -3,6 +3,9 @@ import { Container, Header, Title,Card, CardItem, Item, Input, Form,
   Thumbnail, Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import firebase from 'react-native-firebase';
+import { GoogleSignin, GoogleSigninButton, statusCodes } from 'react-native-google-signin'
+
+
 
 const firebaseConfig = {
   apiKey: 'AIzaSyBkkNn6H8lQ6ZfGaxc6bOajvPgRMEA-3eI',
@@ -14,6 +17,7 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 
+
 export default class LoginScreen extends React.Component {
   state = {
     loading: true, 
@@ -22,13 +26,29 @@ export default class LoginScreen extends React.Component {
 
   constructor(props) {
     super(props)
-
+    GoogleSignin.configure();
     this.state = ({
       email: '',
       password: '',
     })
   }
-   
+  
+// Somewhere in your code
+signIn = async () => {
+  try {
+    await GoogleSignin.hasPlayServices();
+    const userInfo = await GoogleSignin.signIn();
+    this.setState({ userInfo }); 
+    
+    this.props.navigation.navigate('Home');
+  } catch (error) {
+    console.warn(error);
+    
+  }
+};
+
+
+
   LoginUser = (email, password) => {
       try{
       firebase.auth().signInWithEmailAndPassword(email,password).
@@ -57,7 +77,7 @@ export default class LoginScreen extends React.Component {
                 <Item rounded>
                   <Input 
                   onChangeText={(text)=>{this.setState({email: text})}}
-                  placeholder='Потребителско име' placeholderTextColor="#fff" />
+                  placeholder='Имейл' placeholderTextColor="#fff" />
                 </Item>
                 </View>
 
@@ -75,6 +95,14 @@ export default class LoginScreen extends React.Component {
                       Влез
                     </Text>
                   </Button>
+                </View>
+                <View style={{padding:10, alignSelf:'center'}}>
+                    <GoogleSigninButton
+                    style={{ width: 192, height: 48 }}
+                    size={GoogleSigninButton.Size.Wide}
+                    color={GoogleSigninButton.Color.Light}
+                    onPress={this.signIn}
+                    disabled={this.state.isSigninInProgress} />
                 </View>
                 <View>
                 <Button onPress={() => this.props.navigation.navigate('Register')}transparent warning style={{padding:20, color:'#fff', alignSelf:'center'}}>

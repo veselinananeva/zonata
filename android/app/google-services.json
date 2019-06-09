@@ -15,23 +15,22 @@
       },
       "oauth_client": [
         {
-          "client_id": "1058895379800-54tijhgaa7kfhqjtf7v2jjrhdv22g4ko.apps.googleusercontent.com",
-          "client_type": 3
+          "client_id": "1058895379800-5n4in34j77b6hhe9gvgdc4e4fdetasn6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.zonata",
+            "certificate_hash": "8a6e036ee445c5aae7654e64fe11b95597ba1365"
+          }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCHv4CXaOEI8MMJahR7lQD9onssG91ZdAg"
+          "current_key": "AIzaSyBzvp1uM0N5H9xnu07f_Cw1Axv4WGLyAZw"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1058895379800-54tijhgaa7kfhqjtf7v2jjrhdv22g4ko.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

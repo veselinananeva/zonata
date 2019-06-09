@@ -17,7 +17,7 @@ export default class CountNormalReceipt extends React.Component {
   }
   addData(){
     var ss = this.state.data;
-      ss.push("penis");
+      ss.push();
   this.setState({data: ss})
 }
 
