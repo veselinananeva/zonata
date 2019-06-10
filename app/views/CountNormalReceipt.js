@@ -13,11 +13,11 @@ export default class CountNormalReceipt extends React.Component {
   }
   constructor(props) {
     super(props);
-
+    
   }
   addData(){
     var ss = this.state.data;
-      ss.push();
+      ss.push('');
   this.setState({data: ss})
 }
 

@@ -3,6 +3,7 @@ import HomeScreen from '../views/HomeScreen';
 import TableScreen from '../views/TableScreen';
 import CountZoneReceipt from '../views/CountZoneReceipt';
 import CountNormalReceipt from '../views/CountNormalReceipt';
+import CountProduct from '../views/CountProduct';
 import SideBar from '../layouts/SideBar';
 import {createDrawerNavigator, createAppContainer} from 'react-navigation'; 
 import LoginScreen from '../views/LoginScreen';
@@ -27,6 +28,9 @@ const AppNavigator = createDrawerNavigator({
     },
     CountNormalReceipt: {
       screen: props=> <CountNormalReceipt {...props}/>
+    }, 
+    CountProduct: {
+      screen: props=> <CountProduct {...props}/>
     }
   },
 

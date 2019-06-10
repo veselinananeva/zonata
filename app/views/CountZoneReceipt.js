@@ -13,9 +13,15 @@ export default class CountZoneReceipt extends React.Component {
   }
   constructor(props) {
     super(props);
-
+    
+    this.state = {
+      setProductValue: '',
+      setQuantity: '',
+      prodZona: 0
+    }
   }
-  addData(){
+
+   addData(){
     var ss = this.state.data;
       ss.push('ff');
   this.setState({data: ss})

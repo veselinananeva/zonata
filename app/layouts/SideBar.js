@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, List, ListItem, Header, Title,Card, CardItem, Thumbnail,Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
+import { Container, List, ListItem, Badge, Thumbnail,Image, Content, Footer, FooterTab, Button, Left, Right, Body, Icon } from 'native-base';
 import { StatusBar, StyleSheet, Text, View, ImageBackground,  } from 'react-native';
 import HomeScreen from '../views/HomeScreen';
 import CountZoneReceipt from '../views/CountZoneReceipt';
@@ -38,16 +38,16 @@ export default class SideBar extends React.Component {
             </ListItem>
             <ListItem button
                 >
-              <Text>Моите рецепти</Text>
+              <Text>Моите рецепти</Text> 
+              <Badge success style={{marginLeft:5}}>
+                <Text style={{color: '#ffffff', padding:5 }}>2</Text>
+              </Badge>
             </ListItem>
-            <ListItem
-                >
+            <ListItem button
+               onPress={() => this.props.navigation.navigate('CountProduct')} >
               <Text>Пресметни по етикет</Text>
             </ListItem>
-            <ListItem
-               >
-              <Text>Дневник</Text>
-            </ListItem>
+            
           </List>
           </View>
 

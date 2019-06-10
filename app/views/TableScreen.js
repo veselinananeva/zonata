@@ -4,24 +4,41 @@ import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import FatTable from '../views/table/FatTable';
 import CarbTable from '../views/table/CarbTable';
 import ProtTable from '../views/table/ProtTable';
-
+import firebase from 'react-native-firebase';
 
 
 export default class TableScreen extends React.Component {
   state = {
     loading: true,
-    activePage: 1
+    activePage: 1,
+    foods: []
+  }
+  constructor() {
+
+    super();
+    //this.ref = firebase.firestore().collection('foods');
+
   }
 
+  componentDidMount() {
+    firebase.firestore().collection('foods').get().then(snapshot=>{
+      snapshot.docs.forEach(recept => {
+        const {foods} = this.state;
+        foods.push(recept.data());
+        this.setState({foods: foods});
+      })
+      
+    })
+  }
   selectComponent = (activePage) => () => this.setState({activePage})
 
   _renderComponent = () => {
     if(this.state.activePage === 1) {
-    return <FatTable/>; }
+    return <FatTable foods={this.state.foods.filter(x=>x.kind == "fat")}/>; }
     else if (this.state.activePage === 2) 
-    { return <ProtTable/>; }
+    { return <ProtTable foods={this.state.foods.filter(x=>x.kind == "protein")} />; }
     else  
-    {return <CarbTable/>; }
+    {return <CarbTable foods={this.state.foods.filter(x=>x.kind == "carb")}  />; }
   }
 
  
@@ -40,6 +57,8 @@ export default class TableScreen extends React.Component {
         </Left>
         <Body>
           <Title>Таблица</Title>
+          <View>
+          </View>
         </Body>
         <Right />
       </Header>
@@ -63,6 +82,7 @@ export default class TableScreen extends React.Component {
 
         <Content padder>
           {this._renderComponent()}
+          
         </Content>
         </Container>
     );
@@ -70,9 +90,9 @@ export default class TableScreen extends React.Component {
 }
 
 
-const Component1 = () => (<Text>Hello world! This is Component B</Text>);
+//const Component1 = () => (<Text>Hello world! This is Component B</Text>);
 //const Component2 = () => (<Text>Hello world! This is bbbb </Text>);
-const Component3 = () => (<Text>Hello world! This is Component c</Text>);
+//const Component3 = () => (<Text>Hello world! This is Component c</Text>);
 
 const styles = StyleSheet.create({
   container: {
